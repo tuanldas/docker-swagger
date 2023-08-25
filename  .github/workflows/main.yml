@@ -2,6 +2,8 @@ name: Swagger
 
 run-name: Build
 
+on:
+  push:
 
 jobs:
   deploy:
