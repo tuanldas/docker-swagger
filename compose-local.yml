@@ -1,0 +1,8 @@
+services:
+  swagger-ui:
+    ports:
+      - '8080:8080'
+
+  swagger-editor:
+    ports:
+      - '80:8080'

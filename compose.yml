@@ -1,0 +1,12 @@
+services:
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    volumes:
+      - ./:/foo
+    environment:
+      - SWAGGER_JSON=/foo/content/api-airbyte.yaml
+
+networks:
+  default:
+    name: ${NETWORK}
+    external: true
