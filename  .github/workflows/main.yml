@@ -1,12 +1,14 @@
 name: Swagger
+
 run-name: Build
+
 on:
   push:
     branches:
       - main
 
 jobs:
-  check-bats-version:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to Server
