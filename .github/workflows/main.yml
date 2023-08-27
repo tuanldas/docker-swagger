@@ -17,9 +17,9 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          envs: GITHUB_REPOSITORY
           script: |
             source .zshrc
             source $PATH_ENVIRONTMENT/.github-action
             cd $SWARM_HOME
-            echo $GITHUB_REPOSITORY
 #            mkdir test
