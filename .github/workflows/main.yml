@@ -12,7 +12,8 @@ jobs:
       - name: SERVER_HOST
         env:
           SERVER_HOST: '${{ secrets.SERVER_HOST }}'
-        run: echo $SERVER_HOST
+        run: |
+          echo "Hello g ${SERVER_HOST}"
       - name: SERVER_USERNAME
         run: echo ${{ secrets.SERVER_USERNAME }}
       - name: SSH_PRIVATE_KEY
