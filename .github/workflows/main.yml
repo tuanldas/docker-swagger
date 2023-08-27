@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Deploy to Server
         uses: appleboy/ssh-action@master
+        env:
+          GITHUB_REPOSITORY: $$GITHUB_REPOSITORY
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
