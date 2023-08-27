@@ -21,6 +21,6 @@ jobs:
           script: |
             source .zshrc
             source $PATH_ENVIRONTMENT/.github-action
-            cd $SWARM_HOME
-            echo $GITHUB_REPOSITORY
-#            mkdir test
+            cd $SWARM_HOME/$GITHUB_REPOSITORY
+            docker compose down 
+            docker compose up -d
