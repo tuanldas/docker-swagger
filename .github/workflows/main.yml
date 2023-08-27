@@ -9,6 +9,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: SERVER_HOST
+        run: echo ${{ secrets.SERVER_HOST }}
+      - name: SERVER_USERNAME
+        run: echo ${{ secrets.SERVER_USERNAME }}
+      - name: SSH_PRIVATE_KEY
+        run: echo ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Deploy to Server
         uses: appleboy/ssh-action@master
         with:
