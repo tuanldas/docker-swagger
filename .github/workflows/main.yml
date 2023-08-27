@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Echo
         run: |
-          echo $PATH_ENVIRONTMENT
+         ls -al
 #          source $PATH_ENVIRONTMENT/.github-action
 #          echo $SWARM_HOME
 #      - name: Deploy to Server
