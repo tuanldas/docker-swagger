@@ -18,7 +18,6 @@ jobs:
           script: |
             source .zshrc
             source $PATH_ENVIRONTMENT/.github-action
-            echo $SWARM_HOME
             cd $SWARM_HOME
-            echo ${{ github.GITHUB_REPOSITORY }}
+            echo $GITHUB_REPOSITORY
 #            mkdir test
