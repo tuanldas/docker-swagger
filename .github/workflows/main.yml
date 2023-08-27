@@ -11,8 +11,9 @@ jobs:
     steps:
       - name: Echo
         run: |
-          source $PATH_ENVIRONTMENT/.github-action
-          echo $SWARM_HOME
+          echo $PATH_ENVIRONTMENT
+#          source $PATH_ENVIRONTMENT/.github-action
+#          echo $SWARM_HOME
 #      - name: Deploy to Server
 #        uses: appleboy/ssh-action@master
 #        with:
