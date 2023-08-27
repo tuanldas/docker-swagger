@@ -2,9 +2,9 @@ services:
   swagger-ui:
     image: swaggerapi/swagger-ui
     volumes:
-      - ./:/foo
+      - ./content:/foo
     environment:
-      - SWAGGER_JSON=/foo/content/api-airbyte.yaml
+      - SWAGGER_JSON=/foo/cheatsheet.yaml
 
 networks:
   default:
