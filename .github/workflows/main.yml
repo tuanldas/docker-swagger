@@ -22,4 +22,5 @@ jobs:
             source .zshrc
             source $PATH_ENVIRONTMENT/.github-action
             cd $SWARM_HOME
+            echo $GITHUB_REPOSITORY
 #            mkdir test
