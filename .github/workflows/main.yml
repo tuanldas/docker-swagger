@@ -16,7 +16,6 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            ls -al
             echo $PATH_ENVIRONTMENT
 #            source $PATH_ENVIRONTMENT/.github-action
 #            echo $SWARM_HOME
