@@ -4,6 +4,36 @@ info:
   description: Cheatsheet API
   version: 1.0.0
 servers:
-  - url: 'https://cheatsheet-backend.taundinhle.com/'
+  - url: 'https://cheatsheet-backend.taundinhle.com/api'
 paths:
-  
+  /auth/login:
+    post:
+      tags:
+        - Authenticate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Login'
+
+components:
+  schemas:
+    Login:
+      type: object
+      properties:
+        user_id:
+          type: string
+        access_token:
+          type: string
