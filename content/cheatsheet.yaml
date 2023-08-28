@@ -27,6 +27,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Login'
+        '401':
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401'
+
+  /cheatsheets:
+    get:
+      tags:
+        - Cheatsheet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cheatsheets'
+
 
 components:
   schemas:
@@ -36,4 +55,41 @@ components:
         user_id:
           type: string
         access_token:
+          type: string
+    401:
+      type: object
+      properties:
+        message:
+          type: string
+          enum: ['Unauthenticated']
+    Cheatsheets:
+      type: object
+      properties:
+        total:
+          type: integer
+        currentPage:
+          type: integer
+        lastPage:
+          type: integer
+        perPage:
+          type: integer
+        nextPageUrl:
+          type: string
+        prevPageUrl:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Cheatsheet'
+
+    Cheatsheet:
+      type: object
+      properties:
+        uuid:
+          type: string
+        name:
+          type: string
+        categoryId:
+          type: string
+        icon:
           type: string
