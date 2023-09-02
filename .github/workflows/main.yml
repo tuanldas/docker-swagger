@@ -23,6 +23,6 @@ jobs:
             source .zshrc
             source $PATH_ENVIRONTMENT/.github-action
             cd $SWARM_HOME/$GITHUB_REPOSITORY
-            git checkout $GITHUB_HEAD_REF
+            git pull $GITHUB_HEAD_REF
             docker compose down 
             docker compose up -d
