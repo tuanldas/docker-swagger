@@ -9,8 +9,6 @@ jobs:
   Deploy_Production:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to Server2
-        run: echo "$GITHUB_HEAD_REF"
       - name: Deploy to Server
         uses: appleboy/ssh-action@master
         env:
@@ -25,6 +23,7 @@ jobs:
             source .zshrc
             source $PATH_ENVIRONTMENT/.github-action
             cd $SWARM_HOME/$GITHUB_REPOSITORY
+            git checkout $GITHUB_HEAD_REF
             docker compose down 
             docker compose up -d
             echo $GITHUB_HEAD_REF
