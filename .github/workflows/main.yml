@@ -26,4 +26,3 @@ jobs:
             git checkout $GITHUB_HEAD_REF
             docker compose down 
             docker compose up -d
-            echo $GITHUB_HEAD_REF
