@@ -61,7 +61,7 @@ components:
       properties:
         message:
           type: string
-          enum: ['Unauthenticated']
+          enum: [ 'Unauthenticated' ]
     Cheatsheets:
       type: object
       properties:
