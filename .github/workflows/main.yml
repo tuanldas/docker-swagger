@@ -9,6 +9,11 @@ jobs:
   Deploy_Production:
     runs-on: ubuntu-latest
     steps:
+      - name: Deploy to Server2
+        env:
+          GITHUB_REPOSITORY: $$GITHUB_REPOSITORY
+          GITHUB_HEAD_REF: $$GITHUB_HEAD_REF
+        run: echo $GITHUB_HEAD_REF
       - name: Deploy to Server
         uses: appleboy/ssh-action@master
         env:
