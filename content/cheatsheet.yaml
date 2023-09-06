@@ -6,8 +6,6 @@ info:
 servers:
   - url: 'https://cheatsheet-backend.taundinhle.com/api'
 paths:
-  #  cheatsheets store
-
   /auth/login:
     post:
       tags:
@@ -53,7 +51,6 @@ paths:
                   message:
                     type: string
 
-
   /cheatsheets:
     get:
       tags:
@@ -65,6 +62,53 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Cheatsheets'
+    post:
+      tags:
+        - Cheatsheet
+      security:
+        - bearerAuth: [ ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                languageId:
+                  type: integer
+                groupId:
+                  type: integer
+                icon:
+                  type: integer
+              required:
+                - name
+                - languageId
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  category_id:
+                    type: string
+                    nullable: true
+                  user_id:
+                    type: string
+                  language_id:
+                    type: string
+                  uuid:
+                    type: string
+                  updated_at:
+                    type: string
+                  created_at:
+                    type: string
+
 
   /chcheatsheets/{uuid}:
     get:
