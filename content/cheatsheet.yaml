@@ -73,6 +73,8 @@ paths:
 
   /languages:
     get:
+      tags:
+        - Languages
       responses:
         '200':
           description: OK
@@ -93,8 +95,23 @@ paths:
                     updated_at:
                       type: string
 
-  #  /categories
-
+  /categories:
+    get:
+      tags:
+        - Categories
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    uuid:
+                      type: string
+                    name:
+                      type: string
 
   /user:
     get:
