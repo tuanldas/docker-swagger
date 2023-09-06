@@ -6,6 +6,7 @@ info:
 servers:
   - url: 'https://cheatsheet-backend.taundinhle.com/api'
 paths:
+  #  cheatsheets store
   /auth/login:
     post:
       tags:
@@ -34,6 +35,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/401'
 
+  #  logout
+
   /cheatsheets:
     get:
       tags:
@@ -45,6 +48,33 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Cheatsheets'
+
+  /chcheatsheets/{uuid}:
+    get:
+      tags:
+        - Cheatsheet
+      parameters:
+        - name: uuid
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cheatsheet Detail'
+
+
+          #  /cheatsheets: post
+
+
+  #  /languages
+
+  #  /categories
+
 
   /user:
     get:
@@ -59,7 +89,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-                
+
+
 components:
   schemas:
     Login:
@@ -105,8 +136,61 @@ components:
         name:
           type: string
         categoryId:
-          type: string
+          type: number
         icon:
+          type: string
+
+    Cheatsheet Detail:
+      type: object
+      properties:
+        cheatsheetDetail:
+          type: object
+          properties:
+            uuid:
+              type: string
+            title:
+              type: string
+            position:
+              type: string
+            cheatsheetUUid:
+              type: string
+            cheatsheetCards:
+              type: array
+              items:
+                $ref: '#/components/schemas/Cheatsheet Card'
+
+    Cheatsheet Card:
+      type: object
+      properties:
+        uuid:
+          type: string
+        title:
+          type: string
+        note:
+          type: string
+          nullable: true
+        topicUUid:
+          type: string
+        cheatsheetCardDetail:
+          type: array
+          items:
+            $ref: '#/components/schemas/Cheatsheet Card Detail'
+
+    Cheatsheet Card Detail:
+      type: object
+      properties:
+        uuid:
+          type: string
+        title:
+          type: string
+          nullable: true
+        content:
+          type: string
+        position:
+          type: string
+        displayTypeCode:
+          type: string
+        cheatsheetCardUUid:
           type: string
 
     User:
