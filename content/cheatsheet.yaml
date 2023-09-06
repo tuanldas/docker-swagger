@@ -7,6 +7,7 @@ servers:
   - url: 'https://cheatsheet-backend.taundinhle.com/api'
 paths:
   #  cheatsheets store
+
   /auth/login:
     post:
       tags:
@@ -70,8 +71,27 @@ paths:
 
           #  /cheatsheets: post
 
-
-  #  /languages
+  /languages:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: integer
+                    uuid:
+                      type: string
+                    name:
+                      type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
 
   #  /categories
 
